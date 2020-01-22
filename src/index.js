@@ -10,14 +10,16 @@ var audioFileIndex = 0;
 
 const audio = new Audio();
 var results = [];
+
 const renderResult = result => {
-  return `<dt>${result.name}</dt><dd>${result.transcript || result.error}</dd>`;
+  return `<dt>${result.name}</dt><dd><pre>${result.transcript ||
+    result.error}</pre></dd>`;
 };
 const renderResults = () => {
   const renderedResults = results.map(result => renderResult(result)).join("");
   transcript.innerHTML = `<dl>${renderedResults}</dl>`;
 };
-
+renderResults();
 const next = () => {
   audioFileIndex++;
   if (audioFileIndex < audioFiles.length) {
@@ -53,6 +55,7 @@ const processNextAudio = () => {
     console.log("audio loaded");
     recognition.start();
   };
+
   audio.onerror = ev => {
     results.push({
       name: audioFiles[audioFileIndex].name,

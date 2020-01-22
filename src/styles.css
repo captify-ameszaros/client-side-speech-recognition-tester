@@ -1,3 +1,62 @@
 body {
   font-family: sans-serif;
+  padding: 20px;
+}
+
+input[type="file"] {
+  color: transparent;
+}
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"]::before {
+  content: "Select audio files";
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+input[type="file"]:hover::before {
+  border-color: black;
+}
+input[type="file"]:active {
+  outline: 0;
+}
+input[type="file"]:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+dl {
+  width: 100%;
+}
+
+dt {
+  vertical-align: top;
+  padding: 8px 0;
+  display: inline-block;
+  width: 150px;
+  margin: 0;
+  font-weight: bold;
+}
+
+dd {
+  vertical-align: top;
+  padding: 8px 0;
+  margin: 0;
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  width: calc(100% - 150px);
+}
+
+pre {
+  margin: 0;
 }
